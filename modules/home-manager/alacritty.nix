@@ -7,7 +7,7 @@ in
 {
   options.programs.alacritty.catppuccin = lib.ctp.mkCatppuccinOpt "alacritty";
 
-  config = lib.mkIf enable {
-    programs.alacritty.settings = lib.importTOML "${sources.alacritty}/catppuccin-${cfg.flavor}.toml";
+  config.programs.alacritty = lib.mkIf enable {
+    settings = lib.importTOML "${sources.alacritty}/catppuccin-${cfg.flavor}.toml";
   };
 }

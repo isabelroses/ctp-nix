@@ -7,9 +7,7 @@ in
 {
   options.programs.bottom.catppuccin = lib.ctp.mkCatppuccinOpt "bottom";
 
-  config = lib.mkIf enable {
-    programs.bottom = {
-      settings = lib.importTOML "${sources.bottom}/themes/${cfg.flavor}.toml";
-    };
+  config.programs.bottom = lib.mkIf enable {
+    settings = lib.importTOML "${sources.bottom}/themes/${cfg.flavor}.toml";
   };
 }

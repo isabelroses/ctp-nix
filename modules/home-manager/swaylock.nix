@@ -7,7 +7,7 @@ in
 {
   options.programs.swaylock.catppuccin = lib.ctp.mkCatppuccinOpt "swaylock";
 
-  config = lib.mkIf enable {
-    programs.swaylock.settings = lib.ctp.fromINI "${sources.swaylock}/themes/${cfg.flavor}.conf";
+  config.programs.swaylock = lib.mkIf enable {
+    settings = lib.ctp.fromINI "${sources.swaylock}/themes/${cfg.flavor}.conf";
   };
 }

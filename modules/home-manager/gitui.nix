@@ -8,8 +8,8 @@ in
 {
   options.programs.gitui.catppuccin = lib.ctp.mkCatppuccinOpt "gitui";
 
-  config = lib.mkIf enable {
-    programs.gitui.theme = builtins.path {
+  config.programs.gitui = lib.mkIf enable {
+    theme = builtins.path {
       name = "${cfg.flavor}.ron";
       path = "${sources.gitui}/theme/${cfg.flavor}.ron";
     };

@@ -8,14 +8,12 @@ in
 {
   options.programs.bat.catppuccin = lib.ctp.mkCatppuccinOpt "bat";
 
-  config = lib.mkIf enable {
-    programs.bat = {
-      config.theme = themeName;
+  config.programs.bat = lib.mkIf enable {
+    config.theme = themeName;
 
-      themes.${themeName} = {
-        src = sources.bat;
-        file = "themes/${themeName}.tmTheme";
-      };
+    themes.${themeName} = {
+      src = sources.bat;
+      file = "themes/${themeName}.tmTheme";
     };
   };
 }

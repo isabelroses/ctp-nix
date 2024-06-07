@@ -9,7 +9,7 @@ in
 {
   options.programs.rio.catppuccin = ctp.mkCatppuccinOpt "rio";
 
-  config = lib.mkIf enable {
-    programs.rio.settings = lib.importTOML "${sources.rio}/catppuccin-${cfg.flavor}.toml";
+  config.programs.rio = lib.mkIf enable {
+    settings = lib.importTOML "${sources.rio}/catppuccin-${cfg.flavor}.toml";
   };
 }

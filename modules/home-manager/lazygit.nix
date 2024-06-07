@@ -12,8 +12,7 @@ in
     accent = ctp.mkAccentOpt "lazygit";
   };
 
-  config = lib.mkIf enable {
-
-    programs.lazygit.settings = lib.ctp.fromYaml "${sources.lazygit}/themes-mergable/${themePath}";
+  config.programs.lazygit = lib.mkIf enable {
+    settings = lib.ctp.fromYaml "${sources.lazygit}/themes-mergable/${themePath}";
   };
 }

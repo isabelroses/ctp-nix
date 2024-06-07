@@ -7,9 +7,5 @@ in
 {
   options.programs.zellij.catppuccin = lib.ctp.mkCatppuccinOpt "zellij";
 
-  config = lib.mkIf enable {
-    programs.zellij.settings = {
-      theme = themeName;
-    };
-  };
+  config.programs.zellij.settings = lib.mkIf enable { theme = themeName; };
 }
